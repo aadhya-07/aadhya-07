@@ -291,6 +291,9 @@ def main(argv=None):
     p.add_argument("--out", type=Path, default=Path("assets"))
     p.add_argument("--projects", type=Path, default=Path("assets/projects.json"),
                    help="repos to render cards for, with description overrides")
+    p.add_argument("--contrib-json", type=Path, default=None,
+                   help="JSON with {total,current,longest} contribution stats; "
+                        "used instead of the GraphQL API (no token needed)")
     args = p.parse_args(argv)
 
     token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
@@ -312,7 +315,12 @@ def main(argv=None):
              ("Public repos", f"{user['public_repos']:,}"),
              ("Followers", f"{user['followers']:,}")]
 
-    contrib = fetch_contributions(args.user, token)
+    contrib = None
+    if args.contrib_json and args.contrib_json.exists():
+        d = json.loads(args.contrib_json.read_text())
+        contrib = (d["total"], d["current"], d["longest"])
+    else:
+        contrib = fetch_contributions(args.user, token)
     if contrib:
         total, current, longest = contrib
         tiles += [("Contributions (1y)", f"{total:,}"),

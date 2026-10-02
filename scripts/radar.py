@@ -79,8 +79,9 @@ def _api(url, token):
 
 
 def from_github(user: str, token: str | None, limit: int, exclude: set[str],
-                curve: float):
+                curve: float, skip_repos: set[str] | None = None):
     """Sum language bytes across the user's non-fork public repos."""
+    skip_repos = {s.lower() for s in (skip_repos or set())}
     totals: dict[str, int] = {}
     page = 1
     while True:
@@ -93,6 +94,8 @@ def from_github(user: str, token: str | None, limit: int, exclude: set[str],
             break
         for repo in repos:
             if repo.get("fork") or repo.get("archived"):
+                continue
+            if repo.get("name", "").lower() in skip_repos:
                 continue
             try:
                 langs = _api(repo["languages_url"], token)
@@ -285,6 +288,9 @@ def main(argv=None):
                    help="max axes when using --github")
     p.add_argument("--exclude", default="html,css,shell,makefile,dockerfile,batchfile",
                    help="comma-separated languages to skip in --github mode")
+    p.add_argument("--skip-repos", default="",
+                   help="comma-separated repo names to skip in --github mode "
+                        "(e.g. your magic profile repo)")
     p.add_argument("--curve", type=float, default=0.5,
                    help="--github axis scaling: 1.0 linear, 0.5 sqrt (default), "
                         "0.3 flattens a one-language-dominant profile")
@@ -296,7 +302,9 @@ def main(argv=None):
     if args.github:
         token = os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN")
         excl = {s.strip().lower() for s in args.exclude.split(",") if s.strip()}
-        title, axes = from_github(args.github, token, args.limit, excl, args.curve)
+        skip = {s.strip() for s in args.skip_repos.split(",") if s.strip()}
+        title, axes = from_github(args.github, token, args.limit, excl,
+                                  args.curve, skip)
     else:
         if not args.data.exists():
             sys.exit(f"no data file: {args.data}")
