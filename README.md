@@ -34,8 +34,8 @@ $ cat about.txt
 
 Hi, I'm **Aadhya** — a web developer from Raipur, India. I craft fast, responsive websites and turn ideas into interactive experiences.
 
-- Currently building **[my portfolio](https://aadhya07.netlify.app)** and demo sites for local businesses
-- Learning **deeper JavaScript + backend APIs**
+- Currently building **[Nexus](https://github.com/aadhya-07/nexus)** — a campus super-app (Next.js + Supabase) — plus demo sites for local businesses
+- Shipping **full-stack apps** with Next.js, Supabase and TypeScript
 - Open to **freelance projects & collabs**
 
 <br>
@@ -44,7 +44,7 @@ Hi, I'm **Aadhya** — a web developer from Raipur, India. I craft fast, respons
 
 ## `~/` toolbox
 
-<img src="https://skillicons.dev/icons?i=html,css,js,react,tailwind,nodejs,git,github,vscode&perline=9" alt="tech stack">
+<img src="https://skillicons.dev/icons?i=html,css,js,ts,react,nextjs,tailwind,supabase,nodejs,git,github,vscode&perline=9" alt="tech stack">
 
 </div>
 
@@ -147,11 +147,11 @@ Hi, I'm **Aadhya** — a web developer from Raipur, India. I craft fast, respons
   </a>
 </td>
 <td width="50%">
-  <a href="https://github.com/aadhya-07/aadhya-07">
+  <a href="https://github.com/aadhya-07/nexus">
     <picture>
-      <source media="(prefers-color-scheme: dark)"  srcset="assets/card-aadhya-07-dark.svg">
-      <source media="(prefers-color-scheme: light)" srcset="assets/card-aadhya-07-light.svg">
-      <img src="assets/card-aadhya-07-dark.svg" width="420" alt="aadhya-07">
+      <source media="(prefers-color-scheme: dark)"  srcset="assets/card-nexus-dark.svg">
+      <source media="(prefers-color-scheme: light)" srcset="assets/card-nexus-light.svg">
+      <img src="assets/card-nexus-dark.svg" width="420" alt="nexus">
     </picture>
   </a>
 </td>
@@ -162,8 +162,8 @@ Hi, I'm **Aadhya** — a web developer from Raipur, India. I craft fast, respons
 
 | project | live | stack |
 |---|---|---|
+| **[nexus](https://github.com/aadhya-07/nexus)** | — | `Next.js` `Supabase` `TypeScript` |
 | **[my-portfolio](https://github.com/aadhya-07/my-portfolio)** | [aadhya07.netlify.app](https://aadhya07.netlify.app) | `HTML` `CSS` `JavaScript` |
-| **[aadhya-07](https://github.com/aadhya-07/aadhya-07)** | [github.com/aadhya-07](https://github.com/aadhya-07) | `Python` `SVG` |
 
 </sub>
 

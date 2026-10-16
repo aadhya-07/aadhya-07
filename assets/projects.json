@@ -1,1 +1,12 @@
-{"projects":[{"description":"My personal portfolio — a fast, responsive showcase of my work, deployed on Netlify.","repo":"my-portfolio"},{"description":"My GitHub profile — dot-matrix portrait, live skill radars and self-hosted stat cards.","repo":"aadhya-07"}]}
+{
+  "projects": [
+    {
+      "repo": "nexus",
+      "description": "Campus OS \u2014 a verified super-app for college life: Lost & Found, Marketplace, Doubts, Referrals, Events. Next.js 16 + Supabase."
+    },
+    {
+      "repo": "my-portfolio",
+      "description": "My personal portfolio \u2014 a fast, responsive showcase of my work, deployed on Netlify."
+    }
+  ]
+}
